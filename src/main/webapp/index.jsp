@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<jsp:useBean id="time" class="com.example.CSA_Server.TimeServlet" scope="request" />
-<jsp:useBean id="data" class="com.example.CSA_Server.DBFunc" scope="request" />
+<jsp:useBean id="time" class="com.example.CSA_Server.controller.TimeServlet" scope="request" />
+<jsp:useBean id="data" class="com.example.CSA_Server.model.DBFunc" scope="request" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,6 @@
 <LI><jsp:getProperty name="time" property="time"/></LI>
 <LI>Du bist: <%request.getParameter("name");%></LI>
 
-<!--<jsp:getProperty name="data" property="bestellung"/>-->
-<!--<p><%request.getParameter("data");%></p>-->
+
 </body>
 </html>

@@ -1,11 +1,10 @@
-package com.example.CSA_Server;
-import com.example.CSA_Server.Bestellung;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
+package com.example.CSA_Server.model;
+import com.example.CSA_Server.model.Bestellung;
+import com.example.CSA_Server.secrets;
 
 import java.sql.*;
 
-public class DBFunc implements secrets{
+public class DBFunc implements secrets {
 
     public static Connection conn() throws SQLException {
         Connection conn = DriverManager.getConnection(url, user, password);

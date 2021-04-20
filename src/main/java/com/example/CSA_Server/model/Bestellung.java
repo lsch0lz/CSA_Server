@@ -1,4 +1,4 @@
-package com.example.CSA_Server;
+package com.example.CSA_Server.model;
 
 public class Bestellung {
     private long bID;

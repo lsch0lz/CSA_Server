@@ -1,4 +1,4 @@
-package com.example.CSA_Server;
+package com.example.CSA_Server.controller;
 
 import java.io.*;
 import javax.servlet.http.*;
