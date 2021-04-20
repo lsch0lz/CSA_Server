@@ -2,6 +2,8 @@ package com.example.CSA_Server.model;
 
 public class Kunde {
     private final long kID;
+    private String username;
+    private String password;
     private String name;
     private String vorname;
     private int plz;
@@ -9,8 +11,10 @@ public class Kunde {
     private String land;
     private String strasseHnr;
 
-    public Kunde(long kID, String name, String vorname, int plz, String ort, String land, String strasseHnr) {
+    public Kunde(long kID, String username, String password, String name, String vorname, int plz, String ort, String land, String strasseHnr) {
         this.kID = kID;
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.vorname = vorname;
         this.plz = plz;
@@ -21,6 +25,8 @@ public class Kunde {
 
     /**
      * Konstruktor um Entitaet in DB zu speichern, also OHNE ID!
+     * @param username
+     * @param password
      * @param name
      * @param vorname
      * @param plz
@@ -28,8 +34,10 @@ public class Kunde {
      * @param land
      * @param strasseHnr
      */
-    public Kunde(String name, String vorname, int plz, String ort, String land, String strasseHnr) {
+    public Kunde(String username, String password, String name, String vorname, int plz, String ort, String land, String strasseHnr) {
         this.kID = -1;
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.vorname = vorname;
         this.plz = plz;
@@ -40,6 +48,22 @@ public class Kunde {
 
     public long getkID() {
         return kID;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername (String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword (String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -94,6 +118,8 @@ public class Kunde {
     public String toString() {
         return "Kunde{" +
                 "kID=" + kID +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", vorname='" + vorname + '\'' +
                 ", plz=" + plz +
