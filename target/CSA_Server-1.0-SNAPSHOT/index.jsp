@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<jsp:useBean id="time" class="com.example.CSA_Server.controller.TimeServlet" scope="request" />
-<jsp:useBean id="data" class="com.example.CSA_Server.model.DBFunc" scope="request" />
+<jsp:useBean id="time" class="com.company.CSAServer.controller.TimeServlet" scope="request" />
+<jsp:useBean id="data" class="com.company.CSAServer.model.DBFunc" scope="request" />
 
 <!DOCTYPE html>
 <html lang="de">
@@ -30,7 +30,7 @@
     <h2>Springseile zum Spottpreis</h2>
     <br><br>
 
-    <form>
+    <form action="login" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username">
