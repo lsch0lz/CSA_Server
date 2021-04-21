@@ -196,4 +196,35 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    public Kunde loginKunde(String givenUsername, String givenPassword) {
+        Kunde loggedin = null;
+
+        try {
+            Connection conn = conn();
+            String query = "SELECT * FROM Kunde WHERE username='" + givenUsername + "' AND password='" + givenPassword + "';";
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery(query);
+
+            while(result.next()) {
+                String name = result.getString("Name");
+                String vorname = result.getString("Vorname");
+                int plz = result.getInt("PLZ");
+                String ort = result.getString("Ort");
+                String land = result.getString("Land");
+                int k_id = result.getInt("K-ID");
+                String strassehnr = result.getString("StrasseHnr");
+                String username = result.getString("username");
+                String password = result.getString("password");
+
+                loggedin = new Kunde(k_id, username, password, name, vorname, plz, ort, land, strassehnr);
+
+            }
+            conn.close();
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        return loggedin;
+    }
 }

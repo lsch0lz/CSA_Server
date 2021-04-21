@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.company.CSAServer.model.Kunde" %><%--
   Created by IntelliJ IDEA.
   User: giuseppe
   Date: 20.04.21
@@ -16,7 +16,7 @@
     <!-- JQuery Google-CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css">
     <title>Magala-Shop</title>
 </head>
 <body>
@@ -24,25 +24,27 @@
 <div id="navbar"></div>
 <script>
     $(function(){
-        $("#navbar").load("./../modules/nav_int.html");
+        $("#navbar").load("${pageContext.request.contextPath}/modules/nav_int.html");
     });
 </script>
 
 <div class="main_wrapper">
 
-    <br><br>
-    <h1>Herzloch willkommen zum <i>Magala</i>-Shop</h1>
-    <h2>Springseile zum Spottpreis</h2>
-    <br><br>
+    <%
+    Kunde k = (Kunde) request.getAttribute("kunde");
+    %>
 
-
+    <br><br>
+    <h1>Hallo <%=k.getVorname()%> <%=k.getName()%></h1>
+    <h2>Hast du Lust auf Springseile?</h2>
+    <br><br>
 
 </div>
 
 <div id="footer"></div>
 <script>
     $(function(){
-        $("#footer").load("./../modules/footer.html");
+        $("#footer").load("${pageContext.request.contextPath}/modules/footer.html");
     });
 </script>
 </body>

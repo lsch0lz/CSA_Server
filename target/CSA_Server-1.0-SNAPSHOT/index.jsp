@@ -11,7 +11,7 @@
     <!-- JQuery Google-CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css">
     <title>Magala-Shop</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
 <div id="navbar"></div>
 <script>
     $(function(){
-        $("#navbar").load("./modules/nav_ext.html");
+        $("#navbar").load("${pageContext.request.contextPath}/modules/nav_ext.html");
     });
 </script>
 
@@ -30,15 +30,22 @@
     <h2>Springseile zum Spottpreis</h2>
     <br><br>
 
+    <c:if test="${not empty errorMessage}">
+        <div class="alert alert-danger" role="alert">
+                ${errorMessage}
+        </div>
+    </c:if>
+
+
     <form action="login" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username">
+            <input type="text" class="form-control" id="username" name="username">
             <div id="emailHelp" class="form-text">Unser Shop ist nur registrierten Nutzern zugänglich!</div>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Passwort</label>
-            <input type="password" class="form-control" id="password">
+            <input type="password" class="form-control" id="password" name="password">
         </div>
         <!-- <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -48,14 +55,12 @@
         <button type="reset" class="btn btn-warning">Zurücksetzen</button>
     </form>
 
-    <a href="./loggedin/">Login-Mockup</a>
-
 </div>
 
 <div id="footer"></div>
 <script>
     $(function(){
-        $("#footer").load("./modules/footer.html");
+        $("#footer").load("${pageContext.request.contextPath}/modules/footer.html");
     });
 </script>
 </body>
