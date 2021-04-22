@@ -1,5 +1,6 @@
 package com.company.CSAServer.controller;
 
+import com.company.CSAServer.model.Artikel;
 import com.company.CSAServer.model.DBFunc;
 import com.company.CSAServer.model.Kunde;
 
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import static com.company.CSAServer.model.DBFunc.getArtikel;
 
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
@@ -31,7 +35,12 @@ public class LoginServlet extends HttpServlet {
         //out.print("Fehler beim login!");
 
         if(k != null && k.getUsername().equals(username) && k.getPassword().equals(password)) {
+            ArrayList<Artikel> artikel = new ArrayList();
+            getArtikel(artikel);
+
             request.setAttribute("kunde", k);
+            request.setAttribute("artikel", artikel);
+
             request.getRequestDispatcher("/loggedin/").forward(request, response);
         } else {
             request.setAttribute("errorMessage", "Ungültige Nutzerdaten!");

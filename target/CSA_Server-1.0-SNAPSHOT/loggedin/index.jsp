@@ -1,4 +1,6 @@
-<%@ page import="com.company.CSAServer.model.Kunde" %><%--
+<%@ page import="com.company.CSAServer.model.Kunde" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.company.CSAServer.model.Artikel" %><%--
   Created by IntelliJ IDEA.
   User: giuseppe
   Date: 20.04.21
@@ -32,12 +34,35 @@
 
     <%
     Kunde k = (Kunde) request.getAttribute("kunde");
+    ArrayList<Artikel> artikel = (ArrayList<Artikel>) request.getAttribute("artikel");
     %>
 
     <br><br>
     <h1>Hallo <%=k.getVorname()%> <%=k.getName()%></h1>
     <h2>Hast du Lust auf Springseile?</h2>
     <br><br>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Bild</td>
+                <td>Bezeichnung</td>
+                <td>Preis</td>
+            </tr>
+        </thead>
+        <tbody>
+            <%  for(int i = 0; i < artikel.size(); i++) { %>
+                <tr>
+                    <td><%= artikel.get(i).getaID() %></td>
+                    <td><img src="<%= artikel.get(i).getBildURL() %>" alt="" style="max-width: 100px;"></td>
+                    <td><%= artikel.get(i).getBezeichnung() %></td>
+                    <td><%= artikel.get(i).getPreis() %> €</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 
 </div>
 

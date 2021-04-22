@@ -3,11 +3,13 @@ package com.company.CSAServer.model;
 public class Artikel {
     private final long aID;
     private String bezeichnung;
+    private String bildURL;
     private double preis;
 
-    public Artikel(long aID, String bezeichnung, double preis) {
+    public Artikel(long aID, String bezeichnung, String bildURL, double preis) {
         this.aID = aID;
         this.bezeichnung = bezeichnung;
+        this.bildURL = bildURL;
         this.preis = preis;
     }
 
@@ -16,9 +18,10 @@ public class Artikel {
      * @param bezeichnung
      * @param preis
      */
-    public Artikel(String bezeichnung, double preis) {
+    public Artikel(String bezeichnung, String bildURL, double preis) {
         this.aID = -1;
         this.bezeichnung = bezeichnung;
+        this.bildURL = bildURL;
         this.preis = preis;
     }
 
@@ -34,6 +37,14 @@ public class Artikel {
         this.bezeichnung = bezeichnung;
     }
 
+    public String getBildURL() {
+        return bildURL;
+    }
+
+    public void setBildURL(String bildURL) {
+        this.bildURL = bildURL;
+    }
+
     public double getPreis() {
         return preis;
     }
@@ -47,8 +58,8 @@ public class Artikel {
         return "Artikel{" +
                 "aID=" + aID +
                 ", bezeichnung='" + bezeichnung + '\'' +
+                ", bildURL='" + bildURL + '\'' +
                 ", preis=" + preis +
                 '}';
     }
-
 }

@@ -80,20 +80,27 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
-    public static void getArtikel(ArrayList<Artikel> artikel) throws  SQLException {
-        Connection conn = conn();
-        String query = "SELECT * FROM Artikel";
-        Statement statement = conn.createStatement();
-        ResultSet result = statement.executeQuery(query);
+    public static void getArtikel(ArrayList<Artikel> artikel) {
 
-        while(result.next()) {
-            long aID = result.getLong("A-ID");
-            String bezeichnung = result.getString("Bezeichnung");
-            double preis = result.getDouble("Preis");
+        try {
+            Connection conn = conn();
+            String query = "SELECT * FROM Artikel";
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery(query);
 
-            artikel.add(new Artikel(aID, bezeichnung, preis));
+            while(result.next()) {
+                long aID = result.getLong("A-ID");
+                String bezeichnung = result.getString("Bezeichnung");
+                String bildURL = result.getString("BildURL");
+                double preis = result.getDouble("Preis");
+
+                artikel.add(new Artikel(aID, bezeichnung, bildURL, preis));
+            }
+            conn.close();
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-        conn.close();
+
     }
 
     //insert PreparedStatement
@@ -143,12 +150,13 @@ public class DBFunc implements secrets {
 
     public static void insertArtikelPS(Artikel artikel) throws SQLException {
         Connection conn = conn();
-        String insert = "INSERT INTO Artikel (Bezeichnung, Preis) VALUES (?, ?)";
+        String insert = "INSERT INTO Artikel (Bezeichnung, BildURL, Preis) VALUES (?, ?, ?)";
 
         PreparedStatement statement = conn.prepareStatement(insert);
 
         statement.setString(1, artikel.getBezeichnung());
-        statement.setDouble(2, artikel.getPreis());
+        statement.setString(2, artikel.getBildURL());
+        statement.setDouble(3, artikel.getPreis());
 
         statement.executeUpdate();
         conn.close();
@@ -184,7 +192,7 @@ public class DBFunc implements secrets {
 
         } else if(entity.getClass().getName().equals(praefix + "Artikel")) {
             Artikel artikel = (Artikel) entity;
-            update = "UPDATE Artikel SET Bezeichnung='" + artikel.getBezeichnung() + "', Preis=" + artikel.getPreis() + " WHERE `A-ID`=" + artikel.getaID() + ";";
+            update = "UPDATE Artikel SET Bezeichnung='" + artikel.getBezeichnung() + "', BildURL='" + artikel.getBildURL() + "', Preis=" + artikel.getPreis() + " WHERE `A-ID`=" + artikel.getaID() + ";";
 
         } else {
             throw new Exception("Keine gültige Entitaet übergeben!");
