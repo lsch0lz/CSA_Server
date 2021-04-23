@@ -180,7 +180,7 @@ public class DBFunc implements secrets {
 
         String praefix = "com.company.CSAServer.model.";
 
-        System.out.println(entity.getClass());
+        //System.out.println(entity.getClass());
 
         if(entity.getClass().getName().equals(praefix + "Kunde")) {
             Kunde kunde = (Kunde) entity;

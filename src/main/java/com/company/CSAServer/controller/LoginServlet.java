@@ -38,13 +38,14 @@ public class LoginServlet extends HttpServlet {
             ArrayList<Artikel> artikel = new ArrayList();
             getArtikel(artikel);
 
-      
+            HttpSession session = request.getSession();
+            //String kunde = (String)request.getAttribute("kunde");
 
+            session.setAttribute("kunde", k);
+            session.setAttribute("artikel", artikel);
 
-            request.setAttribute("kunde", k);
-            request.setAttribute("artikel", artikel);
+            response.sendRedirect(request.getContextPath() + "/loggedin/");
 
-            request.getRequestDispatcher("/loggedin/").forward(request, response);
         } else {
             request.setAttribute("errorMessage", "Ungültige Nutzerdaten!");
             request.getRequestDispatcher("/").forward(request, response);

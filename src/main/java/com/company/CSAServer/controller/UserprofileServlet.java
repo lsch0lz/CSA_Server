@@ -43,9 +43,12 @@ public class UserprofileServlet extends HttpServlet {
                 System.out.println(k.toString());
                 updateEntity(k);
 
-                request.setAttribute("kunde", k);
-                request.setAttribute("successMessage", "Profil aktualisiert!");
+                HttpSession session = request.getSession();
 
+                session.removeAttribute("kunde");
+                session.setAttribute("kunde", k);
+
+                request.setAttribute("successMessage", "Profil erfolgreich aktualisiert!");
                 request.getRequestDispatcher("/loggedin/profile").forward(request, response);
             } catch(Exception e) {
                 e.printStackTrace();

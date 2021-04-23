@@ -33,10 +33,8 @@
 <div class="main_wrapper">
 
     <%
-    Kunde k = (Kunde) request.getAttribute("kunde");
-    ArrayList<Artikel> artikel = (ArrayList<Artikel>) request.getAttribute("artikel");
-
-    session.setAttribute("kunde", k);
+    Kunde k = (Kunde) session.getAttribute("kunde");
+    ArrayList<Artikel> artikel = (ArrayList<Artikel>) session.getAttribute("artikel");
     %>
 
     <br><br>

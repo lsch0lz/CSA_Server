@@ -23,7 +23,7 @@
 <div id="navbar"></div>
 <script>
     $(function(){
-        $("#navbar").load("${pageContext.request.contextPath}/modules/nav_ext.html");
+        $("#navbar").load("${pageContext.request.contextPath}/modules/nav_int.html");
     });
 </script>
 
