@@ -35,6 +35,8 @@
     <%
     Kunde k = (Kunde) request.getAttribute("kunde");
     ArrayList<Artikel> artikel = (ArrayList<Artikel>) request.getAttribute("artikel");
+
+    session.setAttribute("kunde", k);
     %>
 
     <br><br>

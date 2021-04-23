@@ -13,4 +13,13 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserprofileServlet</servlet-name>
+        <servlet-class>com.company.CSAServer.controller.UserprofileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserprofileServlet</servlet-name>
+        <url-pattern>/loggedin/updateProfile</url-pattern>
+    </servlet-mapping>
+
 </web-app>

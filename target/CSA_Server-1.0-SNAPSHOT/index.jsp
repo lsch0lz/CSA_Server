@@ -36,8 +36,7 @@
         </div>
     </c:if>
 
-
-    <form action="login" method="post">
+    <form action="${pageContext.request.contextPath}/login" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username">

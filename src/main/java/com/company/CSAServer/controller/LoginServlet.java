@@ -38,6 +38,9 @@ public class LoginServlet extends HttpServlet {
             ArrayList<Artikel> artikel = new ArrayList();
             getArtikel(artikel);
 
+      
+
+
             request.setAttribute("kunde", k);
             request.setAttribute("artikel", artikel);
 
