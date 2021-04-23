@@ -48,17 +48,24 @@ public class UserprofileServlet extends HttpServlet {
                 session.removeAttribute("kunde");
                 session.setAttribute("kunde", k);
 
+                request.removeAttribute("successMessage");
                 request.setAttribute("successMessage", "Profil erfolgreich aktualisiert!");
-                request.getRequestDispatcher("/loggedin/profile").forward(request, response);
+
+                request.getRequestDispatcher("/loggedin/profile/").forward(request, response);
             } catch(Exception e) {
                 e.printStackTrace();
+
+                request.removeAttribute("errorMessage");
                 request.setAttribute("errorMessage", "Fehler bei der Aktualisierung des Profils!");
-                request.getRequestDispatcher("/loggedin/profile").forward(request, response);
+
+                request.getRequestDispatcher("/loggedin/profile/").forward(request, response);
             }
 
         } else {
+            request.removeAttribute("errorMessage");
             request.setAttribute("errorMessage", "Ungültige Nutzerdaten! Bitte erneut versuchen...");
-            request.getRequestDispatcher("/loggedin/profile").forward(request, response);
+
+            request.getRequestDispatcher("/loggedin/profile/").forward(request, response);
         }
 
     }

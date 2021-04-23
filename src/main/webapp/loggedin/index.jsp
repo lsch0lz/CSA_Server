@@ -64,6 +64,8 @@
         </tbody>
     </table>
 
+    <br><br>
+
 </div>
 
 <div id="footer"></div>
