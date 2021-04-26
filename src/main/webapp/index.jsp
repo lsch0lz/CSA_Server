@@ -26,7 +26,7 @@
 <div class="main_wrapper">
 
     <br><br>
-    <h1>Herzloch willkommen zum <i>Magala</i>-Shop</h1>
+    <h1>Herzlich willkommen zum <i>Magala</i>-Shop</h1>
     <h2>Springseile zum Spottpreis</h2>
     <br><br>
 
