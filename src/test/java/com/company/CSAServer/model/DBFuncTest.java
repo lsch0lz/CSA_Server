@@ -52,7 +52,7 @@ class DBFuncTest {
     }
 
     @Test
-    @DisplayName("Akrualisieren der Entitäten der DB")
+    @DisplayName("Aktualisieren der Entitäten der DB")
     void updateEntityTest() {
         try {
             Artikel neuerArtikel = new Artikel("Springseit 1000m", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTwVKYsODCXTcPjbbmibIAkvaBGXLIrmX2H0peDgRAEhGQbsw0V6KZoQ6s4TAmqvlLi2qQ51Q&usqp=CAc", 399.95);
