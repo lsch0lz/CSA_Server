@@ -255,7 +255,7 @@ public class DBFunc implements secrets {
      * @param givenUsername = vom Nutzer eingegebener Nutzername
      * @param givenPassword = vom Nutzer eingegebenes Passwort
      */
-    public Kunde loginKunde(String givenUsername, String givenPassword) {
+    public static Kunde loginKunde(String givenUsername, String givenPassword) {
         Kunde loggedin = null;
 
         try {
