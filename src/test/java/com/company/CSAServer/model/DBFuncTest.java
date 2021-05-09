@@ -71,7 +71,7 @@ class DBFuncTest {
             Artikel zuAendernderArtikel = artikel.get(artikel.size()-1);
             Kunde zuAendernderKunde = kunden.get(kunden.size()-1);
 
-            zuAendernderArtikel.setBezeichnung("Neuer Springseil");
+            zuAendernderArtikel.setBezeichnung("Neues Springseil");
             zuAendernderArtikel.setBildURL("https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRekLluLNOl7tZcrjNdYbo-1esk5xxIUQZz8Ulma7O33sWp5QAOrT4kkFlM3JMT8ymL3SMFI0YFYQ&usqp=CAc");
             zuAendernderArtikel.setPreis(299.96);
 
