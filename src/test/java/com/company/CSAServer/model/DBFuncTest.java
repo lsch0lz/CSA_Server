@@ -1,10 +1,8 @@
 package com.company.CSAServer.model;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import static com.company.CSAServer.model.DBFunc.*;
