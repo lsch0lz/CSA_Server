@@ -20,6 +20,14 @@ public class UserprofileServlet extends HttpServlet {
         //System.out.println("Hello World");
     }
 
+    /**
+     * Diese Methode erhält die im Profil-jsp eingegebenen Nutzerdaten zur Aktualisierung übergeben.
+     * Daraus wird ein neues Objekt Kunde erstellt und der updateEntity-Methode der DBFunc-Klasse übergeben.
+     * Sobalt dies geschehen ist, wird der neue Kunde in die aktuelle Session gespeichert und das Servlet veranlasst
+     * eine Weiterleitung zur aufrufenden Seite inklusive einer positiven Rückmeldung zur Anzeige an den Nutzer.
+     *
+     * Sollte die Aktualisierung der Nutzerdaten nicht erfolgt sein, wird eine Fehlermeldung zur Anzeige an den Nutzer an die aufrufende Seite zurückgegeben.
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long kID = new Long(request.getParameter("kID"));

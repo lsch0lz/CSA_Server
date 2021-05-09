@@ -1,6 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<jsp:useBean id="time" class="com.company.CSAServer.controller.TimeServlet" scope="request" />
-<jsp:useBean id="data" class="com.company.CSAServer.model.DBFunc" scope="request" />
 
 <!DOCTYPE html>
 <html lang="de">

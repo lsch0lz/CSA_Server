@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import static com.company.CSAServer.model.DBFunc.getArtikel;
@@ -24,6 +23,13 @@ public class LoginServlet extends HttpServlet {
         //System.out.println("Hello World");
     }
 
+    /**
+     * Methode erhält einen Request seitens des login-jsp. Darin enthalten sind die vom Nutzer eingegebenen Nutzerdaten (username und password).
+     * Die Methode übergibt diese Parameter an die loginKunde-Funktion der DBFunc-Klasse, welche ein Kunde-Objekt zurückgibt.
+     * Ist dieses Objekt == null, so wurde kein Nutzer in der Datenbank mit den übergebenen Credentials gefunden. In diesem Fall wird eine Fehlermeldung an die aufrufende jsp-Seite weitergeleitet.
+     * Wenn dieses Objekt != null, dann werden die in der Datenbank hinterlegten Artikel mittels der getArtikeö-Funktion der DBFunc-Klasse geladen und in eine neue Session gespeichert. Auch die Daten des eingeloggten Kunden werden dort gespeichert.
+     * Schließlich veranlasst das Servlet eine Weiterleitung zum Bereich /loggedin/.
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");

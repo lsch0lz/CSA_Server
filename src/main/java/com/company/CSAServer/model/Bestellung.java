@@ -4,6 +4,9 @@ public class Bestellung {
     private long bID;
     private long kID;
 
+    /**
+     * Konstruktor umd die Entität aus der DB zu laden!
+     */
     public Bestellung(long bID, long kID) {
         this.bID = bID;
         this.kID = kID;
@@ -11,8 +14,6 @@ public class Bestellung {
 
     /**
      * Konstruktor um Entitaet in DB zu speichern, also OHNE ID!
-     *
-     * @param kID
      */
     public Bestellung(long kID) {
         this.bID = -1;

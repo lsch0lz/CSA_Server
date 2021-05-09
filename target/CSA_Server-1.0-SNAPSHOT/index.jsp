@@ -1,6 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<jsp:useBean id="time" class="com.company.CSAServer.controller.TimeServlet" scope="request" />
-<jsp:useBean id="data" class="com.company.CSAServer.model.DBFunc" scope="request" />
 
 <!DOCTYPE html>
 <html lang="de">
@@ -26,7 +24,7 @@
 <div class="main_wrapper">
 
     <br><br>
-    <h1>Herzloch willkommen zum <i>Magala</i>-Shop</h1>
+    <h1>Herzlich willkommen zum <i>Magala</i>-Shop</h1>
     <h2>Springseile zum Spottpreis</h2>
     <br><br>
 

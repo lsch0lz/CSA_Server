@@ -6,6 +6,9 @@ public class Artikel {
     private String bildURL;
     private double preis;
 
+    /**
+     * Konstruktor um Entität aus der DB zu laden, also inklusive ID!
+     */
     public Artikel(long aID, String bezeichnung, String bildURL, double preis) {
         this.aID = aID;
         this.bezeichnung = bezeichnung;
@@ -15,8 +18,6 @@ public class Artikel {
 
     /**
      * Konstruktor um Entitaet in DB zu speichern, also OHNE ID!
-     * @param bezeichnung
-     * @param preis
      */
     public Artikel(String bezeichnung, String bildURL, double preis) {
         this.aID = -1;

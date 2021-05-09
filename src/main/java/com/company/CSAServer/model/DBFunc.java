@@ -7,19 +7,31 @@ import java.util.ArrayList;
 public class DBFunc implements secrets {
     static long start = -1;
 
+    /**
+     * Methode stellt eine Verbindung zur DB her und gibt diese zurück.
+     */
     public static Connection conn() throws SQLException {
         Connection conn = DriverManager.getConnection(url, user, password);
         return conn;
     }
 
+    /**
+     * Methode gibt ihr übergebenen String aus.
+     */
     public static void print(String msg){
         System.out.println(msg);
     }
 
+    /**
+     * Methode startet eine Zeitstoppung.
+     */
     public static void startTime() {
         start = System.nanoTime();
     }
 
+    /**
+     * Methode beenden eine Zeitstoppung und gibt die Differenz aus der Start- und Stopzeit aus.
+     */
     public static void stopTime(){
         long stop = System.nanoTime();
         long time = stop - start;
@@ -27,7 +39,10 @@ public class DBFunc implements secrets {
         print("");
     }
 
-    //select
+    /**
+     * Methode lädt alle Kunden aus der Datenbank, speichert diese in Instanzen des Typs Kunde und speichert diese in
+     * die ihr übergebene ArrayList des Typs Kunde.
+     */
     public static void getKunden(ArrayList<Kunde> kunden) throws  SQLException {
         Connection conn = conn();
         String query = "SELECT * FROM Kunde";
@@ -50,6 +65,10 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    /**
+     * Methode lädt alle Bestellungen aus der Datenbank, speichert diese in Instanzen des Typs Bestellung und speichert diese in
+     * die ihr übergebene ArrayList des Typs Bestellung.
+     */
     public static void getBestellungen(ArrayList<Bestellung> bestellungen) throws  SQLException {
         Connection conn = conn();
         String query = "SELECT * FROM Bestellung";
@@ -65,6 +84,10 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    /**
+     * Methode lädt alle "Beinhaltet"-Einträge aus der Datenbank, speichert diese in Instanzen des Typs Beinhaltet und speichert diese in
+     * die ihr übergebene ArrayList des Typs Beinhaltet.
+     */
     public static void getBeinhaltet(ArrayList<Beinhaltet> beinhaltet) throws  SQLException {
         Connection conn = conn();
         String query = "SELECT * FROM Beinhaltet";
@@ -80,6 +103,10 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    /**
+     * Methode lädt alle Artikel aus der Datenbank, speichert diese in Instanzen des Typs Artikel und speichert diese in
+     * die ihr übergebene ArrayList des Typs Artikel.
+     */
     public static void getArtikel(ArrayList<Artikel> artikel) {
 
         try {
@@ -103,7 +130,9 @@ public class DBFunc implements secrets {
 
     }
 
-    //insert PreparedStatement
+    /**
+     * Methode speichert die ihr übergenene Instanz des Typs Kunde mittels eines PreparedStaitments in die Datenbank.
+     */
     public static void insertKundePS(Kunde kunde) throws SQLException {
         Connection conn = conn();
         String insert = "INSERT INTO Kunde (Name, Vorname, PLZ, Ort, Land, StrasseHnr, username, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -123,6 +152,9 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    /**
+     * Methode speichert die ihr übergenene Instanz des Typs Bestellung mittels eines PreparedStaitments in die Datenbank.
+     */
     public static void insertBestellungPS(Bestellung bestellung) throws SQLException {
         Connection conn = conn();
         String insert = "INSERT INTO Bestellung (`K-ID`) VALUES (?)";
@@ -135,6 +167,9 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    /**
+     * Methode speichert die ihr übergenene Instanz des Typs Beinhaltet mittels eines PreparedStaitments in die Datenbank.
+     */
     public static void insertBeinhaltetPS(Beinhaltet beinhaltet) throws SQLException {
         Connection conn = conn();
         String insert = "INSERT INTO Beinhaltet (`A-ID`, `B-ID`) VALUES (?, ?)";
@@ -148,6 +183,9 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    /**
+     * Methode speichert die ihr übergenene Instanz des Typs Artikel mittels eines PreparedStaitments in die Datenbank.
+     */
     public static void insertArtikelPS(Artikel artikel) throws SQLException {
         Connection conn = conn();
         String insert = "INSERT INTO Artikel (Bezeichnung, BildURL, Preis) VALUES (?, ?, ?)";
@@ -162,7 +200,9 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
-    //delete Statement
+    /**
+     * Methode leert die Datenbanktabelle mit den ihr übergebenen Tabellennamen.
+     */
     public static void emptyTable(String table) throws SQLException {
         Connection conn = conn();
 
@@ -173,7 +213,9 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
-    //update Statement
+    /**
+     * Diese Methode aktualisiert alle Parameter der ihr übergebenen Entität.
+     */
     public static void updateEntity(Object entity) throws Exception {
         Connection conn = conn();
         String update = "";
@@ -206,6 +248,13 @@ public class DBFunc implements secrets {
         conn.close();
     }
 
+    /**
+     * Methode prüft, ob ein Kunde mit den ihr übergebenen Parametern in der DB existiert.
+     * Falls nein, wird eine leere Referenz des Typs Kunde zurückgegeben.
+     * Falls ja, wird eine neue Instanz des Typs Kunde mit all den zu diesem gehörogen Attributen zurückgegeben.
+     * @param givenUsername = vom Nutzer eingegebener Nutzername
+     * @param givenPassword = vom Nutzer eingegebenes Passwort
+     */
     public Kunde loginKunde(String givenUsername, String givenPassword) {
         Kunde loggedin = null;
 

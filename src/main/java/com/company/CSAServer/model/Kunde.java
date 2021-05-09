@@ -11,6 +11,9 @@ public class Kunde {
     private String land;
     private String strasseHnr;
 
+    /**
+     * Konstruktor um die Entität aus der DB zu laden!
+     */
     public Kunde(long kID, String username, String password, String name, String vorname, int plz, String ort, String land, String strasseHnr) {
         this.kID = kID;
         this.username = username;
@@ -25,14 +28,6 @@ public class Kunde {
 
     /**
      * Konstruktor um Entitaet in DB zu speichern, also OHNE ID!
-     * @param username
-     * @param password
-     * @param name
-     * @param vorname
-     * @param plz
-     * @param ort
-     * @param land
-     * @param strasseHnr
      */
     public Kunde(String username, String password, String name, String vorname, int plz, String ort, String land, String strasseHnr) {
         this.kID = -1;
